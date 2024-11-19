@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/CSS/loguin.css">
+    <script src="/JS/loguin.js"></script>
+</head>
+<body>
+    <main>
+        <div class="form-container">
+            <h1>Inicia sesión</h1>
+            <p>ingresa tus datos para que puedas comprar y aprovechar nuestras ofertas</p>
+
+    <form id= "login">
+            <label for="usuario" class="sr-only">usuario</label>
+            <input type="text" placeholder="Escriba su usuario" id="usuario" name="user" required autocomplete="usuario">
+    
+            <label for="password" class="sr-only">contraseña</label>
+            <input type="password" placeholder="Ingrese la contraseña que registró previamente." id="password" name="password" required autocomplete="current-password">
+            <!---->
+            <button type="submit"> Registrarse </button>  
+            <p class="error escondido">Error al iniciar sesión</p>
+            <p> ¿Aun no te registras? - <a href="/PAGES_HTML/register.html">Crea tu cuenta</a></p> 
+    </form>
+        </div>
+</main>
+</body>
+</html>

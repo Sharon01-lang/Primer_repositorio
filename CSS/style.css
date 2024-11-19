@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Permanent+Marker&display=swap');
+
+:root {
+    --padding-container: 100px 0;
+}
+body{
+    font-family: 'DynaPuff';
+}
+* {
+    padding: 0;
+    box-sizing: border-box; /* Corregido para que el box-sizing sea border-box */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--padding-container);
+    overflow: hidden;
+}
+
+.hero {
+    /* Si quieres que el header tenga el mismo ancho que el contenedor */
+    width: 100%;
+    --padding-container: 0; 
+}
+
+.hero_container {
+    width: 100%; /* Para que ocupe todo el ancho del contenedor */
+    max-width: 1200px; /* Maximo ancho igual al del header */
+    margin: 0 auto; /* Centrado */
+    text-align: center; /* Centrar el texto */
+    padding: 40px 0;
+}
+.hero_container{
+    width: 100%; /* Ocupa el 100% del ancho disponible */
+    max-width: 1200px; /* Mismo máximo ancho que el header */
+    margin: 0 auto; /* Centrado */
+    text-align: center; /* Centrar el texto */
+    padding: 40px 0;
+    position: relative; /* Necesario para manejar el clip-path y los fondos */
+    overflow: hidden; /* Para que el clip-path funcione correctamente */
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 99%, 0 81%);
+}
+.hero_container.encabezado-img {
+    background-image: url('/IMAGENES/foto.jpg');
+    background-size: cover;
+    background-position: center;
+    color: black; /* Ajusta el color del texto según el fondo */
+}
+
+header {
+    display: flex;
+    background-color: #000000;
+    text-align: center;
+    padding: 40px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.logo{
+display: flex;
+}
+.logo img{
+    height: 100px;
+}
+
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    margin: 0 5px;
+    padding: 5px 12px;
+    border-radius: 30px;
+}
+nav a:hover {
+    background-color: #a29d9d;
+    color: #11781b;
+}
+#user-name {
+    color: #11781b;
+    font-weight: bold;
+}
+.encabezado-img{
+    background-image: url(/IMAGENES/foto.jpg);
+    background-size: cover;  /* Mantiene la imagen cubriendo todo el div */
+    background-repeat: no-repeat;
+    background-position: center center;  /* Centra la imagen*/
+    height: 450vh;
+    min-height: 600px;
+    max-height: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+}
+.encabezado-img p{
+	font-size: 20px;
+}
+.encabezado-img h1{
+	font-size: 80px;
+	padding: 15px 0;
+}
+.sobreuno{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+height: 30vh;
+background-image:linear-gradient(
+    0deg,
+    rgba(0,0,0,0.5),
+)
+}
+
+
+/* ACERCA DE NOSOTROS*/
+.abaut {
+    background-color: #e4e4fa;
+}
+
+/* Contenedor principal, hacer que ocupe todo el ancho y el contenido sea flexible */
+.sobreUno_container {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr; /* 50px -> 1fr, 1fr -> 4fr para ajustar el contenido */
+    gap: 1em;
+    align-items: center;
+    padding-top: 0; /* Elimina el padding superior si no es necesario */
+    padding-bottom: 0; /* Elimina el padding inferior si no es necesario */
+}
+
+/* Contenedores de los cuerpos */
+.sobreUno_body {
+    display: grid;
+    grid-template-columns: 1fr auto; /* Ajusta para que el contenido ocupe el máximo disponible */
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+    opacity: 0;
+    pointer-events: none;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* Mostrar cuando es necesario */
+.sobreUno_body--show {
+    pointer-events: unset;
+    opacity: 1;
+}
+
+/* Hacer las imágenes más adaptables */
+.sobreUno_img {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    max-width: 250px; /* Limita el tamaño máximo de la imagen */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 50%;
+    object-fit: cover;
+}
+/* Texto dentro de la sección de 'sobreUno_texts' */
+.sobreUno_texts {
+    max-width: 100%; /* Se ajusta al contenedor */
+}
+/* Ajuste para las flechas */
+.sobreUno_arrow {
+    width: 100%; /* Hace que las flechas ocupen todo el espacio disponible */
+    max-width: 50px; /* Limitar el tamaño máximo */
+    cursor: pointer;
+    visibility: visible; /* Asegura que las flechas sean visibles */
+    position: relative;
+    z-index: 1; /* Asegura que las flechas estén encima de otros elementos */
+}
+/* Alineación de las flechas */
+.sobreUno_container img.sobreUno_arrow {
+    display: block; /* Asegura que las flechas sean elementos de bloque */
+    margin: 0 auto; /* Centra las flechas */
+}
+/* Estilo adicional para mejorar la presentación en móviles */
+@media (max-width: 450px) {
+    .sobreUno_container {
+        grid-template-columns: 1fr; /* En pantallas pequeñas, usar solo una columna */
+    }
+
+    .sobreUno_body {
+        grid-template-columns: 1fr; /* El texto y la imagen se alinean verticalmente */
+    }
+
+    .sobreUno_img {
+        width: 80%; /* Limitar el tamaño de la imagen en móviles */
+        margin: 0 auto; /* Centrar la imagen */
+    }
+
+    .sobreUno_texts {
+        max-width: 100%; /* El texto se adapta al contenedor */
+    }
+    
+     /* Ajustar el tamaño de las flechas en pantallas muy pequeñas */
+     .sobreUno_arrow {
+        max-width: 30px; /* Ajustar aún más el tamaño en pantallas muy pequeñas */
+    }
+
+    /* Asegurar que las flechas no se separen demasiado */
+    .sobreUno_arrow:first-child {
+        margin-left: 5px; /* Reducir la separación a la izquierda */
+    }
+
+    .sobreUno_arrow:last-child {
+        margin-right: 5px; /* Reducir la separación a la derecha */
+    }
+}
+
+/*MISIÓN Y VISIÓN*/
+.objetivo{
+    text-align: center;
+    padding-top: 0; /* Elimina el padding superior si no es necesario */
+    padding-bottom: 0; /* Elimina el padding inferior si no es necesario */
+}
+.objetivo_title{
+    color: #11781b;
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+.abaut_paragraph{
+    line-height: 1.7;
+}
+.objetivo_main{
+    padding-top: 80px;
+    display: grid;
+    width: 90%;
+    margin: 0 auto;
+    gap: 3em;
+    overflow: hidden;
+    grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+}
+.objetivo_icons{
+    display: grid;
+    gap: 1em;
+    justify-items: center;
+    width: 260px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.objetivo_icon{
+    width: 50px;
+}
+
+/*PRODUCTOS*/
+
+.productos{
+    text-align: center;
+}
+.productos_table{
+    padding-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5em;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.productos_element{
+    background-color:blueviolet;
+    text-align: center;
+    border-radius: 10px;
+    width: 330px;
+    padding: 40px;
+    --color-productos: #696871; 
+    --color-price: #1d293f;
+    --bg-cta: #5454D4;
+    --color-items: #6968; 
+}
+.productos_name{
+    color: var(--color-productos);
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+.productos_price{
+    font-size: 2.5rem;
+    color: var(--color-price);
+}
+.productos_items{
+    margin-top: 35px;
+    display: grid;
+    gap: 1em;
+    font-weight: 300;
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    color: var(--color-items);
+}
+.productos_cta{
+    display: block;
+    padding: 20px 0;
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: var(--bg-cta);
+    font-weight: 600;
+    box-shadow: 0 0 1px rgba(0,0,0,0.5);
+}
+

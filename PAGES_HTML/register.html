@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/CSS/loguin.css">
+    <script src="/JS/register.js"></script>
+</head>
+<body>
+    <main>
+        <div class="form-container">
+            <h1>Crea tu cuenta</h1>
+            <p> Registra tus datos para que puedas comprar y aprovechar nuestras ofertas</p>
+
+    <form id= "register-form" method="POST">
+            <label for="usuario" class="sr-only">usuario</label>
+            <input type="text" placeholder="Escriba un usuario de preferencia" id="usuario" name="user" required autocomplete="usuario">
+    
+            <select name="genero" id="genero" required aria-label="Selecciona tu género">
+                <option value="" disabled selected>Selecciona tu género</option> <!-- Opción placeholder -->
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="otro">Otro</option>
+            </select>            
+    
+            <label for="correo" class="sr-only">correo</label>
+            <input type="email" placeholder="Escriba su correo electronico" id="correo" name="email" required autocomplete="email">
+    
+            <label for="password" class="sr-only">contraseña</label>
+            <input type="password" placeholder="*******" id="password" name="password" required autocomplete="current-password">
+            <!---->
+            <button type="submit"> Registrarse </button>  
+            <p  id="mensaje-error" class="error escondido">Error al registrarse</p>
+    </form>  
+            <p> ¿Ya estas registrado? - <a href="/PAGES_HTML/iniciarsesion.html">inicia sesión</a></p> 
+        </div>
+</main>
+</body>
+</html>

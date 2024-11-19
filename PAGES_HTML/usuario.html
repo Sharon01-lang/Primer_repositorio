@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUESOS MSM</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+</head>
+<body>
+
+    <h2>Modificar Perfil</h2>
+    
+    <form id="edit-profile-form">
+        <label for="edit-user">Nombre:</label>
+        <input type="text" id="edit-user" placeholder="Nuevo nombre">
+
+        <select name="genero" id="edit-genero" aria-label="Selecciona tu género">
+            <option value="" disabled selected>Selecciona tu género</option> <!-- Opción placeholder -->
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+            <option value="otro">Otro</option>
+        </select> 
+
+        <label for="edit-email">Correo:</label>
+        <input type="email" id="edit-email" placeholder="Nuevo correo">
+
+        <label for="edit-password">Contraseña:</label>
+        <input type="password" id="edit-password" placeholder="Nueva contraseña">
+
+        <button type="submit">Guardar cambios</button>
+    </form>
+    <button id="logout">Cerrar sesión</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Recuperar el usuario actual desde localStorage
+            const currentUser = JSON.parse(localStorage.getItem('CURRENT_USUARIO'));
+
+            if (currentUser) {
+                // Mostrar el nombre del usuario en el menú
+                document.getElementById('user-name').innerHTML = ` ${currentUser.user}`;
+
+                // Rellenar los campos del formulario con los datos actuales
+                document.getElementById('edit-user').value = currentUser.user;
+                document.getElementById('edit-genero').value = currentUser.genero;
+                document.getElementById('edit-email').value = currentUser.email;
+                document.getElementById('edit-password').value = currentUser.password;
+
+                // Evento para guardar los cambios en el perfil
+                const form = document.getElementById('edit-profile-form');
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    // Obtener los nuevos valores
+                    const newUser = document.getElementById('edit-user').value.trim();
+                    const newGenero = document.getElementById('edit-genero').value.trim();
+                    const newEmail = document.getElementById('edit-email').value.trim();
+                    const newPassword = document.getElementById('edit-password').value.trim();
+
+                    // Actualizar la información del usuario
+                    currentUser.user = newUser;
+                    currentUser.genero = newGenero;
+                    currentUser.email = newEmail;
+                    currentUser.password = newPassword;
+
+                    // Guardar los cambios en el localStorage
+                    localStorage.setItem('CURRENT_USUARIO', JSON.stringify(currentUser));
+                    alert('Perfil actualizado con éxito.');
+                });
+
+                // Evento para cerrar sesión
+                const logoutButton = document.getElementById('logout');
+                logoutButton.addEventListener('click', () => {
+                    // Eliminar los datos del usuario de localStorage
+                    localStorage.removeItem('CURRENT_USUARIO');
+                    alert('Has cerrado sesión correctamente.');
+                    window.location.href = 'proyecto.html';
+                });
+            } else {
+                // Si no hay usuario logueado, redirigir a la página de inicio de sesión
+                window.location.href = 'register.html';
+            }
+        });
+    </script>
